@@ -1,0 +1,49 @@
+# Build outputs
+build/
+output/
+*.o
+*.ko
+*.mod
+*.mod.c
+*.symvers
+*.order
+
+# Buildroot
+firmware/buildroot/output/
+firmware/buildroot/dl/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# Qt build
+software/ui/build/
+*.pro.user
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# AI models (too large for git)
+software/ai/whisper/models/*.bin
+software/ai/recommendation/models/*.tflite
+software/ai/super-resolution/models/*.onnx
+
+# Logs
+*.log
+logs/
+
+# Temporary
+tmp/
+temp/

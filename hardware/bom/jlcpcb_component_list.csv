@@ -1,0 +1,252 @@
+# ═══════════════════════════════════════════════════════════════
+# APEXSAT AI v1.0 - JLCPCB SMT Komponent Listesi
+# Tarih: 2026-02-20 | Revizyon: A
+# Tasarımcı: Halil Dinçer - Dinçer Tavukçuluk / APEX Serisi
+# ═══════════════════════════════════════════════════════════════
+# Format: JLCPCB SMT Assembly BOM uyumlu
+# Basic = JLCPCB stokta, ek ücret yok
+# Extended = JLCPCB temin eder, $3 ek ücret/benzersiz parça
+# ═══════════════════════════════════════════════════════════════
+Designator,Value,LCSC Part #,Package/Footprint,Description,Manufacturer,MPN,SMT Type,Qty,Unit Price (USD),Total Price (USD),Category,Notes
+#
+# ═══════════════════════════════════════════════════════════════
+# 1. ANA İŞLEMCİ (SoC) - Manuel Lehim
+# ═══════════════════════════════════════════════════════════════
+U1,S905X4-J,--,BGA-272,"Quad Cortex-A55 2.0GHz, Mali-G31, 1.2T NPU",Amlogic,S905X4-J,Manuel,1,$15.00,$15.00,SoC,"BGA - JLCPCB SMT desteklemez, manuel/reflow"
+#
+# ═══════════════════════════════════════════════════════════════
+# 2. BELLEK (DDR4 + eMMC) - Manuel Lehim
+# ═══════════════════════════════════════════════════════════════
+U2-U5_DDR,K4A8G165WC-BCWE,--,FBGA-96,"DDR4 SDRAM 4Gbit 3200MHz x8",Samsung,K4A8G165WC-BCWE,Manuel,4,$2.00,$8.00,DRAM,"BGA - manuel reflow, DDR4 32-bit bus"
+U6_EMMC,KLMAG1JETD-B041,--,FBGA-153,"eMMC 5.1 32GB NAND Flash",Samsung,KLMAG1JETD-B041,Manuel,1,$6.00,$6.00,Flash,"BGA-153 - manuel reflow"
+#
+# ═══════════════════════════════════════════════════════════════
+# 3. GÜÇ KAYNAĞI REGÜLATÖRLERİ
+# ═══════════════════════════════════════════════════════════════
+U11,MP2315GJ-Z,C45889,TSOT-23-8,"12V→5V 3A Step-Down Buck",MPS,MP2315GJ-Z,Extended,1,$0.49,$0.49,DC-DC,"Ana 5V buck, Fsw=500kHz"
+U16,MP1584EN-LF-Z,C15051,SOIC-8-EP,"12V→3.3V 3A Step-Down Buck",MPS,MP1584EN-LF-Z,Extended,1,$0.55,$0.55,DC-DC,"★ Ana 3.3V (AP2112K LDO yerine)"
+U15,SY8088AAC,C79313,SOT-23-5,"5V→0.9V 1A Buck (SoC Core)",Silergy,SY8088AAC,Extended,1,$0.049,$0.049,DC-DC,"VDDCORE, 1. açılan, Vin 2.5-5.5V"
+U14,MP8759GD-Z,C3187827,QFN-12 (3x3),"5V→1.1V 2A Buck (GPU/DDR4)",MPS,MP8759GD-Z,Extended,1,$1.50,$1.50,DC-DC,"VDDGPU+VDDQ, 2. açılan, PGOOD çıkış"
+U13,RT9193-18GB,C27416,SOT-23-5,"1.8V 300mA LDO (DDR4 VDD)",Richtek,RT9193-18GB,Extended,1,$0.054,$0.054,LDO,"3. açılan, EN=PGOOD_1.1V"
+U12,AP2112K-3.3TRG1,C51118,SOT-23-5,"3.3V 600mA LDO (RF bölüm)",Diodes Inc,AP2112K-3.3TRG1,Extended,1,$0.078,$0.078,LDO,"Sadece RF 3.3V, düşük gürültü"
+#
+# ═══════════════════════════════════════════════════════════════
+# 4. DVB-S2 UYDU FRONTEND
+# ═══════════════════════════════════════════════════════════════
+M1,BSBE2-401A,--,Through-Hole,"DVB-S2 NIM Modülü (CX24116)",Sharp/Compatible,BSBE2-401A,Manuel,1,$12.00,$12.00,RF Modül,"THT - ayrı temin, NIM soketi"
+U4,LNBH26PQR,--,QFN-24,"LNB Power 13V/18V 22kHz DiSEqC",STMicroelectronics,LNBH26PQR,Consigned,1,$3.50,$3.50,LNB Power,"⚠️ LCSC'de YOK - DigiKey/Mouser'dan temin, consigned part"
+J2,KH-F75K-1,C496200,Through-Hole,"F-Type Dişi 75Ω (LNB IN)",Ckmtw,KH-F75K-1,Manuel,1,$0.50,$0.50,RF Konnektör,"THT lehim"
+J3,KH-F75K-1,C496200,Through-Hole,"F-Type Dişi 75Ω (LNB OUT Loop)",Ckmtw,KH-F75K-1,Manuel,1,$0.50,$0.50,RF Konnektör,"THT lehim"
+#
+# ═══════════════════════════════════════════════════════════════
+# 5. ETHERNET
+# ═══════════════════════════════════════════════════════════════
+U7,RTL8211F-CG,C187932,QFN-40,"Gigabit Ethernet PHY RGMII",Realtek,RTL8211F-CG,Extended,1,$0.85,$0.85,Ethernet PHY,"⚠️ QFN-40 (QFN-48 değil!) footprint doğrula"
+J5,HR911105A,C386755,Through-Hole,"RJ45 Magjack LED Entegre Manyetik",HR,HR911105A,Manuel,1,$1.00,$1.00,Konnektör,"THT, 10/100/1000 Mbps"
+Y1,7B-25.000MAAJ-T,C13738,3225,"25MHz Kristal (ETH PHY)",TXC,7B-25.000MAAJ-T,Basic,1,$0.20,$0.20,Crystal,"18pF yük kapasitansı"
+#
+# ═══════════════════════════════════════════════════════════════
+# 6. WiFi / BLUETOOTH
+# ═══════════════════════════════════════════════════════════════
+U8,RTL8822CS-VL-CG,C2761413,QFN-76,"WiFi 5 (ac) + BT 5.0 Combo (Bare IC)",Realtek,RTL8822CS-VL-CG,Extended,1,$7.51,$7.51,WiFi/BT,"SDIO+UART, bare chip - anten devresi gerekli"
+J4a,U.FL-R-SMT-1,C262608,SMD,"u.FL (IPEX) Anten 2.4GHz",HRS,U.FL-R-SMT-1(10),Extended,1,$0.15,$0.15,RF Konnektör,""
+J4b,U.FL-R-SMT-1,C262608,SMD,"u.FL (IPEX) Anten 5GHz",HRS,U.FL-R-SMT-1(10),Extended,1,$0.15,$0.15,RF Konnektör,""
+#
+# ═══════════════════════════════════════════════════════════════
+# 7. HDMI
+# ═══════════════════════════════════════════════════════════════
+J6,TYPE-A-19P-SMT,C138388,SMD,"HDMI Type-A 19pin Dişi",Korean Hroparts,TYPE-A-19P-SMT,Extended,1,$0.40,$0.40,Konnektör,"HDMI 2.0b"
+U9,IP4791CZ12,C551518,WLCSP-12,"HDMI ESD Koruma 4-ch TVS",Nexperia,IP4791CZ12,Extended,1,$0.45,$0.45,ESD Protection,"⚠️ Stok belirsiz, alt: PRTR5V0U2X (C12333)"
+#
+# ═══════════════════════════════════════════════════════════════
+# 8. USB PORTLARI
+# ═══════════════════════════════════════════════════════════════
+J7,USB-A-3.0-DIP,C165948,Through-Hole,"USB 3.0 Type-A Dişi",Jing Extension,USB-A-3.0-DIP,Manuel,1,$0.30,$0.30,Konnektör,"THT, 5Gbps"
+J8a,USB-A-2.0-DIP,C46407,Through-Hole,"USB 2.0 Type-A Dişi",Jing Extension,USB-A-2.0-DIP,Manuel,1,$0.15,$0.15,Konnektör,"THT"
+J8b,USB-A-2.0-DIP,C46407,Through-Hole,"USB 2.0 Type-A Dişi",Jing Extension,USB-A-2.0-DIP,Manuel,1,$0.15,$0.15,Konnektör,"THT"
+J9,TYPE-C-31-M-12,C165948,SMD,"USB Type-C Dişi (OTG/Debug)",Korean Hroparts,TYPE-C-31-M-12,Extended,1,$0.25,$0.25,Konnektör,""
+U10a,IP4220CZ6,C111944,SOT-457,"USB 3.0 ESD Koruma",Nexperia,IP4220CZ6,Extended,1,$0.15,$0.15,ESD Protection,""
+U10b,IP4220CZ6,C111944,SOT-457,"USB 2.0a ESD Koruma",Nexperia,IP4220CZ6,Extended,1,$0.15,$0.15,ESD Protection,""
+U10c,IP4220CZ6,C111944,SOT-457,"USB 2.0b ESD Koruma",Nexperia,IP4220CZ6,Extended,1,$0.15,$0.15,ESD Protection,""
+#
+# ═══════════════════════════════════════════════════════════════
+# 9. SES SİSTEMİ
+# ═══════════════════════════════════════════════════════════════
+J10,PJ-325,C145822,Through-Hole,"3.5mm TRRS Audio/AV Jack",XKB,PJ-325,Manuel,1,$0.20,$0.20,Audio,"4-pole, composite video + stereo audio"
+J11,PLT133/T10W,C384664,Through-Hole,"TOSLINK Optik SPDIF Konnektör",Everlight,PLT133/T10W,Manuel,1,$0.80,$0.80,Optik,"THT, dijital ses çıkışı"
+U17a,MSM261S4030H0R,C2840615,LGA,"MEMS Mikrofon I2S (L kanal)",MEMSensing,MSM261S4030H0R,Extended,1,$1.71,$1.71,Mikrofon,"⚠️ INMP441 LCSC'de yok, bu alternatif I2S uyumlu"
+U17b,MSM261S4030H0R,C2840615,LGA,"MEMS Mikrofon I2S (R kanal)",MEMSensing,MSM261S4030H0R,Extended,1,$1.71,$1.71,Mikrofon,"WS pin ile L/R kanal seçimi"
+#
+# ═══════════════════════════════════════════════════════════════
+# 10. IR ALICI / LED
+# ═══════════════════════════════════════════════════════════════
+U18,TSOP38238,C16063,Through-Hole,"IR Alıcı 38kHz 45m",Vishay,TSOP38238,Manuel,1,$0.30,$0.30,IR,"THT, RC5/NEC/RC6 protokol"
+D1,IR333-A,C72054,3mm Through-Hole,"IR LED 940nm (IR Blaster)",Everlight,IR333-A,Manuel,1,$0.10,$0.10,IR LED,"THT, opsiyonel"
+#
+# ═══════════════════════════════════════════════════════════════
+# 11. GÜÇ GİRİŞ + KORUMA
+# ═══════════════════════════════════════════════════════════════
+J12,DC-005-20A,C381116,Through-Hole,"DC Barrel Jack 5.5x2.1mm",XKB,DC-005-20A,Manuel,1,$0.20,$0.20,Güç Konnektör,"THT, 12V/3A giriş"
+D2,SS54,C22452,SMA,"Schottky Diode 5A 40V (ters polarite)",MDD,SS54,Basic,1,$0.05,$0.05,Diode,"Ters polarite koruması"
+F1,MF-MSMF300-2,C70069,1812,"PPTC Fuse 3A (aşırı akım)",Bourns,MF-MSMF300-2,Basic,1,$0.15,$0.15,Fuse,"Resetlenebilir sigorta"
+D_TVS,SMBJ15A,C123799,SMB,"TVS Diode 15V (aşırı gerilim)",LittelfusE,SMBJ15A,Extended,1,$0.12,$0.12,TVS,"Surge koruması"
+#
+# ═══════════════════════════════════════════════════════════════
+# 12. POWER INDUCTOR'LAR
+# ═══════════════════════════════════════════════════════════════
+L2,SWPA4030S4R7MT,C408412,4x4mm SMD,"4.7µH 3A Shielded (5V Buck)",Sunlord,SWPA4030S4R7MT,Extended,1,$0.15,$0.15,Inductor,"MP2315 çıkış indüktörü"
+L3,SWPA4030S2R2MT,C408336,4x4mm SMD,"2.2µH 3A Shielded (0.9V Buck)",Sunlord,SWPA4030S2R2MT,Extended,1,$0.15,$0.15,Inductor,"SY8088 çıkış indüktörü"
+L4,SWPA5040S1R0MT,C325819,5x5mm SMD,"1.0µH 4A Shielded (1.1V Buck)",Sunlord,SWPA5040S1R0MT,Extended,1,$0.20,$0.20,Inductor,"MP8759 çıkış indüktörü"
+L5,SWPA4030S3R3MT,C408338,4x4mm SMD,"3.3µH 3A Shielded (3.3V Buck)",Sunlord,SWPA4030S3R3MT,Extended,1,$0.15,$0.15,Inductor,"★ MP1584 çıkış indüktörü"
+L1,SDFL2012S4R7KTF,C1046,0805,"4.7µH RF Choke 500mA",Sunlord,SDFL2012S4R7KTF,Basic,1,$0.05,$0.05,Inductor,"LNBH26 RF choke"
+FB1,GZ2012D601TF,C1015,0805,"Ferrit Bead 600Ω@100MHz 500mA",Sunlord,GZ2012D601TF,Basic,1,$0.02,$0.02,Ferrite,"3.3V_RF izolasyon"
+FB2,GZ2012D601TF,C1015,0805,"Ferrit Bead 600Ω@100MHz 500mA",Sunlord,GZ2012D601TF,Basic,1,$0.02,$0.02,Ferrite,"HDMI 5V izolasyon"
+#
+# ═══════════════════════════════════════════════════════════════
+# 13. BYPASS / DECOUPLING KAPASİTÖRLER
+# ═══════════════════════════════════════════════════════════════
+C_100nF,CC0402KRX7R9BB104,C131394,0402,"100nF 50V X7R Bypass",YAGEO,CC0402KRX7R9BB104,Basic,50,$0.0015,$0.075,MLCC,"SoC+IC bypass, genel amaçlı, yüksek stok"
+C_1uF,CL05B105KP5NNNC,C52923,0402,"1µF 16V X7R Decoupling",Samsung,CL05B105KP5NNNC,Basic,14,$0.01,$0.14,MLCC,"LDO giriş/çıkış, SoC bulk"
+C_10uF_0402,CL05A106MQ5NUNC,C15525,0402,"10µF 10V X5R",Samsung,CL05A106MQ5NUNC,Basic,10,$0.02,$0.20,MLCC,"SoC yakın bypass"
+C_10uF_0805,CL21A106KAYNNNE,C15850,0805,"10µF 25V X5R",Samsung,CL21A106KAYNNNE,Basic,4,$0.03,$0.12,MLCC,"LNB, ETH bypass"
+C_22uF_0805,CL21A226MQQNNNE,C45783,0805,"22µF 16V X5R Bulk",Samsung,CL21A226MQQNNNE,Basic,8,$0.05,$0.40,MLCC,"Regülatör giriş/çıkış"
+C_22uF_25V,CL31A226MPHNNNE,C96123,1206,"22µF 25V X5R",Samsung,CL31A226MPHNNNE,Basic,2,$0.08,$0.16,MLCC,"MP2315+MP1584 12V giriş"
+C_100uF_POL,16SVP100M,C176671,6.3x5.8mm,"100µF 16V Polimer Elektrolitik",Panasonic,16SVP100M,Extended,4,$0.30,$1.20,Polymer,"Buck converter çıkış bulk"
+C_10nF,CL05B103KB5NNNC,C15195,0402,"10nF 50V X7R",Samsung,CL05B103KB5NNNC,Basic,4,$0.005,$0.02,MLCC,"RT9193 BP pin, genel"
+C_BST,CL05B104KO5NNNC,C307331,0402,"100nF 50V Bootstrap",Samsung,CL05B104KO5NNNC,Basic,3,$0.005,$0.015,MLCC,"Buck BST/BOOT kapasitör"
+#
+# ═══════════════════════════════════════════════════════════════
+# 14. DİRENÇLER
+# ═══════════════════════════════════════════════════════════════
+R_10K,0402WMF1002TCE,C25744,0402,"10kΩ 1% Pull-up/Pull-down",UniOhm,0402WMF1002TCE,Basic,20,$0.003,$0.06,Resistor,"Genel pull-up/down, strap"
+R_4K7,0402WMF4701TCE,C25900,0402,"4.7kΩ 1% I2C Pull-up",UniOhm,0402WMF4701TCE,Basic,4,$0.003,$0.012,Resistor,"I2C SDA/SCL pull-up"
+R_1K,0402WMF1001TCE,C11702,0402,"1kΩ 1% LED Current Limit",UniOhm,0402WMF1001TCE,Basic,4,$0.003,$0.012,Resistor,"LED akım sınırlama"
+R_100R,0402WMF1000TCE,C25076,0402,"100Ω 1% Series Termination",UniOhm,0402WMF1000TCE,Basic,8,$0.003,$0.024,Resistor,"Sinyal terminasyonu"
+R_49R9,0402WMF499JTCE,C25130,0402,"49.9Ω 1% RGMII Termination",UniOhm,0402WMF499JTCE,Basic,4,$0.003,$0.012,Resistor,"ETH RGMII seri terminasyon"
+R_0R,0402WMF0000TCE,C17168,0402,"0Ω Jumper",UniOhm,0402WMF0000TCE,Basic,4,$0.003,$0.012,Resistor,"Konfigürasyon jumper"
+R_2K2,0402WMF2201TCE,C25879,0402,"2.2kΩ 1% HDMI Pull-up",UniOhm,0402WMF2201TCE,Basic,4,$0.003,$0.012,Resistor,"HDMI HPD/SCL/SDA pull-up"
+R_100K_FB,0402WMF1003TCE,C25741,0402,"100kΩ 1% Feedback Top",UniOhm,0402WMF1003TCE,Basic,4,$0.003,$0.012,Resistor,"Buck FB voltage divider üst"
+R_31K6_FB,0402WMF3162TCE,C25923,0402,"31.6kΩ 1% FB (5V set)",UniOhm,0402WMF3162TCE,Basic,1,$0.003,$0.003,Resistor,"MP2315 FB → Vout=5V"
+R_51K_FB,0402WMF5102TCE,C25798,0402,"51kΩ 1% FB (0.9V set)",UniOhm,0402WMF5102TCE,Basic,1,$0.003,$0.003,Resistor,"SY8088 FB → Vout=0.9V"
+R_82K_FB,0402WMF8202TCE,C25810,0402,"82kΩ 1% FB (1.1V set)",UniOhm,0402WMF8202TCE,Basic,1,$0.003,$0.003,Resistor,"MP8759 FB → Vout=1.1V"
+R_36K_FB,0402WMF3602TCE,C25900,0402,"36kΩ 1% FB (3.3V set)",UniOhm,0402WMF3602TCE,Basic,1,$0.003,$0.003,Resistor,"MP1584 FB → Vout=3.3V"
+R_12K_FB,0402WMF1202TCE,C25753,0402,"12kΩ 1% FB bottom (3.3V)",UniOhm,0402WMF1202TCE,Basic,1,$0.003,$0.003,Resistor,"MP1584 FB divider alt"
+#
+# ═══════════════════════════════════════════════════════════════
+# 15. KRİSTAL OSİLATÖRLER
+# ═══════════════════════════════════════════════════════════════
+Y2,7B-24.000MAAJ-T,C13738,3225,"24MHz SoC Ana Kristal",TXC,7B-24.000MAAJ-T,Basic,1,$0.20,$0.20,Crystal,"S905X4 ana saat kaynağı"
+Y3,9HT12-32.768KDZF-T,C32346,2012,"32.768kHz RTC Kristal",TXC,9HT12-32.768KDZF-T,Basic,1,$0.15,$0.15,Crystal,"Gerçek zaman saati"
+#
+# ═══════════════════════════════════════════════════════════════
+# 16. LED'LER
+# ═══════════════════════════════════════════════════════════════
+D3,KT-0603R,C2286,0603,"Kırmızı LED (Power)",Hubei KENTO,KT-0603R,Basic,1,$0.02,$0.02,LED,"Güç göstergesi"
+D4,KT-0603G,C72043,0603,"Yeşil LED (Status)",Hubei KENTO,KT-0603G,Basic,1,$0.02,$0.02,LED,"Sistem durumu"
+D5,KT-0603B,C72041,0603,"Mavi LED (Bluetooth)",Hubei KENTO,KT-0603B,Basic,1,$0.02,$0.02,LED,"BT bağlantı"
+D6,KT-0603R,C2286,0603,"Kırmızı LED (Recording)",Hubei KENTO,KT-0603R,Basic,1,$0.02,$0.02,LED,"PVR kayıt göstergesi"
+#
+# ═══════════════════════════════════════════════════════════════
+# 17. BUTON / SWITCH
+# ═══════════════════════════════════════════════════════════════
+SW1,PTS645SL50SMTR92LFS,C318884,4.5x4.5mm,"Reset Butonu (gömülü)",C&K,PTS645SL50SMTR92LFS,Extended,1,$0.10,$0.10,Tact Switch,"10kΩ pull-up ile"
+SW2,PTS645SL50SMTR92LFS,C318884,6x6mm,"Power Butonu",C&K,PTS645SL50SMTR92LFS,Extended,1,$0.10,$0.10,Tact Switch,"SoC PWRKEY'e bağlı"
+#
+# ═══════════════════════════════════════════════════════════════
+# 18. MOSFET / TRANSİSTÖR
+# ═══════════════════════════════════════════════════════════════
+Q1,AO3400A,C20917,SOT-23,"N-CH MOSFET 30V 5.8A (Fan PWM)",AOS,AO3400A,Basic,1,$0.05,$0.05,MOSFET,"Fan hız kontrolü, 10kΩ gate pull-down"
+Q2,AO3400A,C20917,SOT-23,"N-CH MOSFET (IR LED sürücü)",AOS,AO3400A,Basic,1,$0.05,$0.05,MOSFET,"IR blaster PWM"
+#
+# ═══════════════════════════════════════════════════════════════
+# 19. USB VBUS KORUMA
+# ═══════════════════════════════════════════════════════════════
+F_USB1,MF-PSMF050X-2,C83421,0805,"500mA PPTC (USB 3.0 VBUS)",Bourns,MF-PSMF050X-2,Basic,1,$0.08,$0.08,Fuse,"USB 3.0 aşırı akım"
+F_USB2a,MF-PSMF050X-2,C83421,0805,"500mA PPTC (USB 2.0a VBUS)",Bourns,MF-PSMF050X-2,Basic,1,$0.08,$0.08,Fuse,""
+F_USB2b,MF-PSMF050X-2,C83421,0805,"500mA PPTC (USB 2.0b VBUS)",Bourns,MF-PSMF050X-2,Basic,1,$0.08,$0.08,Fuse,""
+#
+# ═══════════════════════════════════════════════════════════════
+# 20. MicroSD KART YUVASI
+# ═══════════════════════════════════════════════════════════════
+J1,XKTF-003,C585356,SMD,"microSD Kart Yuvası Push-Push UHS-I",XKB,XKTF-003,Extended,1,$0.30,$0.30,Konnektör,"SoC SDIO arayüzü"
+#
+# ═══════════════════════════════════════════════════════════════
+# 21. OPSIYONEL: OLED EKRAN HEADER
+# ═══════════════════════════════════════════════════════════════
+DISP1_HDR,--,C124413,2.54mm 4P,"4-pin Header (SSD1306 OLED)",--,Pin Header 1x4,Basic,1,$0.05,$0.05,Konnektör,"I2C OLED bağlantı header"
+#
+# ═══════════════════════════════════════════════════════════════
+# 22. SOĞUTMA (Manuel Temin)
+# ═══════════════════════════════════════════════════════════════
+HS1,Heatsink,--,25x25x10mm,"SoC Alüminyum Soğutucu + Termal Pad",Generic,--,Manuel,1,$1.00,$1.00,Termal,"3M termal pad ile"
+FAN1,3010-Fan,--,30x30x10mm,"5V DC Fan PWM Kontrollü (opsiyonel)",Generic,--,Manuel,1,$1.50,$1.50,Fan,"Q1 MOSFET ile PWM"
+#
+# ═══════════════════════════════════════════════════════════════
+# 23. ANTEN (Harici Temin)
+# ═══════════════════════════════════════════════════════════════
+ANT1,WiFi Antenna,--,External,"Dual-Band 2.4G+5G WiFi Anten",Generic,--,Manuel,1,$0.80,$0.80,Anten,"IPEX konnektör, kablo ile"
+#
+# ═══════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════
+#
+# ÖZET TABLOSU
+# ═══════════════════════════════════════════════════════════════
+#
+# Kategori               | Benzersiz | Toplam Adet | Maliyet
+# ──────────────────────────────────────────────────────────────
+# SoC + Bellek (Manuel)  |     3     |      6      | $29.00
+# Güç Regülatörleri      |     6     |      6      |  $5.18
+# DVB-S2 Frontend        |     3     |      4      | $15.50
+# Ethernet               |     3     |      3      |  $3.20
+# WiFi/BT                |     2     |      3      |  $4.30
+# HDMI                   |     2     |      2      |  $0.70
+# USB                    |     5     |      7      |  $1.30
+# Ses                    |     3     |      4      |  $4.00
+# IR                     |     2     |      2      |  $0.40
+# Güç Giriş + Koruma     |     4     |      4      |  $0.52
+# İndüktörler            |     7     |      7      |  $0.74
+# Kapasitörler           |     9     |     99      |  $2.50
+# Dirençler              |    13     |     57      |  $0.19
+# Kristaller             |     2     |      2      |  $0.35
+# LED'ler                |     3     |      4      |  $0.08
+# Butonlar               |     1     |      2      |  $0.20
+# MOSFET                 |     1     |      2      |  $0.10
+# USB Fuse               |     1     |      3      |  $0.24
+# Konnektörler           |     1     |      1      |  $0.30
+# Soğutma (Manuel)       |     2     |      2      |  $2.50
+# Anten (Harici)         |     1     |      1      |  $0.80
+# ──────────────────────────────────────────────────────────────
+# TOPLAM                 |   ~72     |    ~221     | ~$72.00
+# ──────────────────────────────────────────────────────────────
+#
+# PCB Üretim Maliyeti (JLCPCB):
+#   6 katman, 150x100mm, ENIG, impedans kontrollü: ~$25-35
+#
+# SMT Montaj Maliyeti (JLCPCB):
+#   ~150 SMT yerleştirme: ~$30-40
+#   Extended parça ek ücreti: ~15 parça × $3 = ~$45
+#
+# Manuel Lehim Gerektiren:
+#   - BGA: SoC (U1), DDR4 x4, eMMC, WiFi modülü → Reflow oven
+#   - THT: F-Type x2, RJ45, USB-A x3, DC Jack, Audio Jack,
+#          TOSLINK, IR alıcı, IR LED → El lehimi
+#
+# TAHMİNİ TOPLAM PROTOTIP MALİYETİ (1 adet):
+#   BOM:     ~$72
+#   PCB:     ~$30
+#   SMT:     ~$75
+#   Kargo:   ~$20
+#   ────────────────
+#   TOPLAM:  ~$197
+#
+# ═══════════════════════════════════════════════════════════════
+# NOTLAR:
+# 1. LCSC Part # "--" olanlar JLCPCB'de yok, ayrı temin edilecek
+#    (Amlogic SoC, Samsung DDR4/eMMC, Realtek WiFi, DVB NIM)
+# 2. Basic parçalar SMT montajda ek ücret yok
+# 3. Extended parçalar $3/benzersiz parça ek ücret
+# 4. Fiyatlar 1-10 adet sipariş bazlı (toplu alımda %20-40 düşer)
+# 5. MP1584EN ana 3.3V kaynağı olarak AP2112K LDO'nun yerine geçti
+#    (termal analiz sonucu - power_tree.md bakınız)
+# 6. Feedback direnç değerleri power_tree.md'deki hesaplamalara göre
+# ═══════════════════════════════════════════════════════════════

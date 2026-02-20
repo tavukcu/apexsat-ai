@@ -1,0 +1,112 @@
+Referans,Değer,Açıklama,Paket,Adet,LCSC Part No,Üretici,Üretici Part No,Kategori,Tahmini Fiyat (USD)
+"# ═══════════════════════════════════════════════════════════════",,,,,,,,
+"# APEXSAT AI v1.0 - Bill of Materials (BOM)",,,,,,,,
+"# Tarih: 2026-02-20",,,,,,,,
+"# Tasarımcı: Halil Dinçer - Dinçer Tavukçuluk / APEX Serisi",,,,,,,,
+"# ═══════════════════════════════════════════════════════════════",,,,,,,,
+,,,,,,,,
+"# ─── ANA İŞLEMCİ (SoC) ──────────────────────────────────",,,,,,,,
+U1,S905X4-J,"Quad-Core ARM Cortex-A55 @ 2.0GHz, Mali-G31 MP2, 1.2TOPS NPU",BGA-272,1,--,Amlogic,S905X4-J,SoC / İşlemci,$15.00
+,,,,,,,,
+"# ─── BELLEK ──────────────────────────────────────────────",,,,,,,,
+U2,K4A8G165WC-BCWE,"DDR4 SDRAM 4Gbit (512MB x8), 3200MHz",FBGA-96,4,--,Samsung,K4A8G165WC-BCWE,DRAM,$2.00
+U3,KLMAG1JETD-B041,"eMMC 5.1 32GB NAND Flash",FBGA-153,1,--,Samsung,KLMAG1JETD-B041,Flash Storage,$6.00
+J1,--,"microSD Kart Yuvası (UHS-I, push-push)",SMD,1,C585356,XKB,XKTF-003,Konnektör,$0.30
+,,,,,,,,
+"# ─── DVB-S2 FRONTEND ────────────────────────────────────",,,,,,,,
+M1,DVB-S2-NIM,"DVB-S2 NIM Modülü (CX24116 tabanlı) - BSBE2 uyumlu",Through-Hole,1,--,Sharp/Compatible,BSBE2-401A,RF Modül,$12.00
+U4,LNBH26PQR,"LNB güç kaynağı (13V/18V, 22kHz, DiSEqC)",QFN-24,1,C92461,STMicroelectronics,LNBH26PQR,LNB Power,$2.50
+J2,F-Type-Female,"F-Tipi Dişi Konnektör 75Ω (LNB IN)",Through-Hole,1,C496200,Ckmtw,KH-F75K-1,RF Konnektör,$0.50
+J3,F-Type-Female,"F-Tipi Dişi Konnektör 75Ω (LNB OUT - loop)",Through-Hole,1,C496200,Ckmtw,KH-F75K-1,RF Konnektör,$0.50
+L1,4.7µH,"RF Choke Inductor, 500mA",0805,1,C1046,Sunlord,SDFL2012S4R7KTF,Inductor,$0.05
+C_RF1,100nF,"Bypass Capacitor, 50V, X7R",0402,4,C307331,Samsung,CL05B104KO5NNNC,Capacitor,$0.01
+C_RF2,10µF,"Decoupling, 25V, X5R",0805,2,C15850,Samsung,CL21A106KAYNNNE,Capacitor,$0.03
+,,,,,,,,
+"# ─── WiFi / Bluetooth ───────────────────────────────────",,,,,,,,
+U5,RTL8822CS,"WiFi 5 (802.11ac) + BT 5.0 Combo Modül",LGA,1,--,Realtek,RTL8822CS,WiFi/BT,$4.00
+J4,U.FL,"u.FL (IPEX) Anten Konnektör",SMD,2,C262608,HRS,U.FL-R-SMT-1(10),RF Konnektör,$0.15
+ANT1,--,"Dual-Band WiFi Anten (2.4G+5G), kablo ile",External,1,--,Generic,--,Anten,$0.80
+,,,,,,,,
+"# ─── ETHERNET ───────────────────────────────────────────",,,,,,,,
+U6,RTL8211F-CG,"Gigabit Ethernet PHY (RGMII)",QFN-48,1,C69264,Realtek,RTL8211F-CG,Ethernet PHY,$2.00
+J5,RJ45-Magjack,"RJ45 Jack (LED'li, Entegre Manyetik)",Through-Hole,1,C386755,HR911105A,HR911105A,Konnektör,$1.00
+R_ETH1,49.9Ω,"RGMII termination resistor",0402,4,C25130,UniOhm,0402WMF499JTCE,Resistor,$0.01
+C_ETH1,100nF,"Ethernet bypass",0402,6,C307331,Samsung,CL05B104KO5NNNC,Capacitor,$0.01
+Y1,25MHz,"Ethernet PHY Kristal Osilatör",3225,1,C13738,TXC,7B-25.000MAAJ-T,Crystal,$0.20
+,,,,,,,,
+"# ─── HDMI ───────────────────────────────────────────────",,,,,,,,
+J6,HDMI-A-Female,"HDMI Type-A Dişi Konnektör (19pin)",SMD,1,C138388,Korean Hroparts,TYPE-A-19P-SMT,Konnektör,$0.40
+U7,IP4791CZ12,"HDMI ESD Koruma (4-line TVS array)",SOT-886,1,C558460,Nexperia,IP4791CZ12,ESD Protection,$0.30
+R_HDMI1,2.2kΩ,"HDMI pull-up",0402,4,C25879,UniOhm,0402WMF2201TCE,Resistor,$0.01
+,,,,,,,,
+"# ─── USB PORTLARI ───────────────────────────────────────",,,,,,,,
+J7,USB-A-3.0,"USB 3.0 Type-A Dişi Konnektör",Through-Hole,1,C165948,Jing Extension,USB-A-3.0-DIP,Konnektör,$0.30
+J8,USB-A-2.0,"USB 2.0 Type-A Dişi Konnektör",Through-Hole,2,C46407,Jing Extension,USB-A-2.0-DIP,Konnektör,$0.15
+J9,USB-C-Female,"USB Type-C Dişi (Debug/OTG)",SMD,1,C165948,Korean Hroparts,TYPE-C-31-M-12,Konnektör,$0.25
+U8,IP4220CZ6,"USB ESD Koruma",SOT-457,3,C111944,Nexperia,IP4220CZ6,ESD Protection,$0.15
+,,,,,,,,
+"# ─── SES ────────────────────────────────────────────────",,,,,,,,
+J10,3.5mm-Jack,"3.5mm Audio Jack (4-pole TRRS, AV çıkış)",Through-Hole,1,C145822,XKB,PJ-325,Audio Konnektör,$0.20
+J11,TOSLINK,"Optik SPDIF Konnektör",Through-Hole,1,C384664,Everlight,PLT133/T10W,Optik Konnektör,$0.80
+U9,INMP441,"MEMS Dijital Mikrofon (I2S), -26dB SNR 61dB",LGA,2,C404616,InvenSense,INMP441ACEZ-R7,Mikrofon,$1.50
+,,,,,,,,
+"# ─── IR ALICI / VERICI ─────────────────────────────────",,,,,,,,
+U10,TSOP38238,"IR Alıcı 38kHz, 45m menzil",Through-Hole,1,C16063,Vishay,TSOP38238,IR Alıcı,$0.30
+D1,IR-LED,"Kızılötesi LED 940nm (IR Blaster, opsiyonel)",3mm,1,C72054,Everlight,IR333-A,IR LED,$0.10
+,,,,,,,,
+"# ─── GÜÇ KAYNAĞI REGÜLATÖRLERİ ────────────────────────",,,,,,,,
+J12,DC-BARREL,"DC Barrel Jack 5.5x2.1mm",Through-Hole,1,C381116,XKB,DC-005-20A,Güç Konnektör,$0.20
+U11,MP2315,"5V/3A Step-Down Regülatör (12V→5V)",TSOT-23-8,1,C75803,MPS,MP2315GJ-Z,Voltage Regulator,$0.50
+U12,AP2112K-3.3,"3.3V/600mA LDO Regülatör",SOT-23-5,2,C51118,Diodes Inc,AP2112K-3.3TRG1,LDO,$0.10
+U13,RT9193-18,"1.8V/300mA LDO (DDR4 VDD)",SOT-23-5,1,C15651,Richtek,RT9193-18GB,LDO,$0.15
+U14,MP8759,"0.9V/3A Buck (SoC Core)",QFN-12,1,--,MPS,MP8759GD-Z,DC-DC,$1.50
+U15,SY8088,"1.1V/2A Buck (SoC GPU/NPU)",SOT-23-6,1,C53002,Silergy,SY8088AAC,DC-DC,$0.40
+L2,4.7µH,"Power Inductor 3A, shielded",4x4mm,1,C408412,Sunlord,SWPA4030S4R7MT,Inductor,$0.15
+L3,2.2µH,"Power Inductor 3A, shielded",4x4mm,1,C408336,Sunlord,SWPA4030S2R2MT,Inductor,$0.15
+L4,1.0µH,"Power Inductor 4A, shielded",5x5mm,1,C325819,Sunlord,SWPA5040S1R0MT,Inductor,$0.20
+D2,SS54,"Schottky Diode 5A 40V (ters polarite koruması)",SMA,1,C22452,MDD,SS54,Diode,$0.05
+F1,3A-PPTC,"Resettable Fuse 3A (overcurrent koruması)",1812,1,C70069,Bourns,MF-MSMF300-2,Fuse,$0.15
+,,,,,,,,
+"# ─── BYPASS / DECOUPLING KAPASİTÖRLER ──────────────────",,,,,,,,
+C1,100nF,"Bypass Capacitor, 16V, X7R",0402,40,C307331,Samsung,CL05B104KO5NNNC,Capacitor,$0.01
+C2,10µF,"Decoupling, 10V, X5R",0402,10,C15525,Samsung,CL05A106MQ5NUNC,Capacitor,$0.02
+C3,1µF,"Decoupling, 16V, X7R",0402,10,C52923,Samsung,CL05B105KP5NNNC,Capacitor,$0.01
+C4,22µF,"Bulk Capacitor, 16V, X5R",0805,6,C45783,Samsung,CL21A226MQQNNNE,Capacitor,$0.05
+C5,100µF,"Bulk Capacitor, 16V, Polymer",SMD-6.3x5.8,4,C176671,Panasonic,16SVP100M,Capacitor,$0.30
+,,,,,,,,
+"# ─── DİRENÇLER ─────────────────────────────────────────",,,,,,,,
+R1,10kΩ,"Pull-up / Pull-down genel",0402,20,C25744,UniOhm,0402WMF1002TCE,Resistor,$0.01
+R2,4.7kΩ,"I2C Pull-up",0402,4,C25900,UniOhm,0402WMF4701TCE,Resistor,$0.01
+R3,1kΩ,"LED current limiting",0402,4,C11702,UniOhm,0402WMF1001TCE,Resistor,$0.01
+R4,100Ω,"Series termination",0402,8,C25076,UniOhm,0402WMF1000TCE,Resistor,$0.01
+R5,0Ω,"Jumper / config",0402,4,C17168,UniOhm,0402WMF0000TCE,Resistor,$0.01
+,,,,,,,,
+"# ─── LED'LER ────────────────────────────────────────────",,,,,,,,
+D3,LED-Red,"Güç LED kırmızı",0603,1,C2286,Hubei KENTO,KT-0603R,LED,$0.02
+D4,LED-Green,"Durum LED yeşil",0603,1,C72043,Hubei KENTO,KT-0603G,LED,$0.02
+D5,LED-Blue,"Bluetooth LED mavi",0603,1,C72041,Hubei KENTO,KT-0603B,LED,$0.02
+,,,,,,,,
+"# ─── KRİSTAL OSİLATÖRLER ───────────────────────────────",,,,,,,,
+Y2,24MHz,"SoC Ana Kristal",3225,1,C13738,TXC,7B-24.000MAAJ-T,Crystal,$0.20
+Y3,32.768kHz,"RTC Kristal",2012,1,C32346,TXC,9HT12-32.768KDZF-T,Crystal,$0.15
+,,,,,,,,
+"# ─── BUTONLAR / SWITCH ─────────────────────────────────",,,,,,,,
+SW1,Reset,"Reset Butonu (gömülü, 2pin)",4.5x4.5mm,1,C318884,C&K,PTS645SL50SMTR92LFS,Tact Switch,$0.10
+SW2,Power,"Power Butonu",6x6mm,1,C318884,C&K,PTS645SL50SMTR92LFS,Tact Switch,$0.10
+,,,,,,,,
+"# ─── SOĞUTMA ────────────────────────────────────────────",,,,,,,,
+HS1,Heatsink,"SoC Heatsink (alüminyum, termal pad ile)",25x25x10mm,1,--,Generic,--,Termal,$1.00
+FAN1,3010-Fan,"30mm DC Fan 5V (PWM kontrollü, opsiyonel)",30x30x10mm,1,--,Generic,--,Fan,$1.50
+Q1,AO3400A,"N-CH MOSFET (Fan PWM kontrolü)",SOT-23,1,C20917,AOS,AO3400A,MOSFET,$0.05
+,,,,,,,,
+"# ─── OPSIYONEL: OLED/VFD EKRAN ─────────────────────────",,,,,,,,
+DISP1,SSD1306,"0.96 inch OLED Ekran 128x64 (I2C)",4-pin,1,--,Generic,SSD1306-128x64,Display,$2.00
+,,,,,,,,
+"# ═══════════════════════════════════════════════════════════",,,,,,,,
+"# ÖZET",,,,,,,,
+"# Toplam Benzersiz Parça: ~55",,,,,,,,
+"# Toplam Bileşen (yerleştirme): ~190",,,,,,,,
+"# PCB Üretimi (6L, JLCPCB): ~$25",,,,,,,,
+"# SMT Montaj (JLCPCB): ~$30",,,,,,,,
+"# Tahmini Toplam BOM: ~$152",,,,,,,,
+"# ═══════════════════════════════════════════════════════════",,,,,,,,

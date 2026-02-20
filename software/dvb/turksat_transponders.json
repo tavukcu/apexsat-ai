@@ -1,0 +1,76 @@
+{
+  "satellite": {
+    "name": "Türksat 4A/5A/6A",
+    "position": "42.0°E",
+    "lnb_type": "Universal Ku-Band",
+    "lnb_low_freq": 9750,
+    "lnb_high_freq": 10600,
+    "lnb_switch_freq": 11700
+  },
+  "transponders": [
+    {"freq": 10970, "pol": "V", "sr": 30000, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK", "note": "TRT kanalları"},
+    {"freq": 11012, "pol": "V", "sr": 30000, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK", "note": "TRT HD kanalları"},
+    {"freq": 11054, "pol": "V", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK", "note": "TRT 4K / radyo"},
+    {"freq": 11096, "pol": "V", "sr": 30000, "fec": "3/4", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11138, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11180, "pol": "V", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+
+    {"freq": 11012, "pol": "H", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11054, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11096, "pol": "H", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11138, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11180, "pol": "H", "sr": 30000, "fec": "3/4", "system": "DVB-S2", "modulation": "8PSK"},
+
+    {"freq": 11729, "pol": "V", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK", "note": "Genel kanallar"},
+    {"freq": 11762, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11804, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11838, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11880, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11919, "pol": "V", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11957, "pol": "V", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11996, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+
+    {"freq": 11729, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11762, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11804, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11838, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11880, "pol": "H", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 11919, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11957, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 11996, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+
+    {"freq": 12015, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12053, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12130, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12169, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12245, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12284, "pol": "V", "sr": 27500, "fec": "3/4", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12322, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12380, "pol": "V", "sr": 30000, "fec": "3/4", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12418, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12458, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+
+    {"freq": 12015, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12053, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12130, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12169, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12245, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12284, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12322, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12380, "pol": "H", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12418, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12458, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+
+    {"freq": 12560, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12601, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12638, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12679, "pol": "V", "sr": 30000, "fec": "3/4", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12729, "pol": "V", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+
+    {"freq": 12560, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12601, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12638, "pol": "H", "sr": 27500, "fec": "5/6", "system": "DVB-S", "modulation": "QPSK"},
+    {"freq": 12679, "pol": "H", "sr": 30000, "fec": "5/6", "system": "DVB-S2", "modulation": "8PSK"},
+    {"freq": 12729, "pol": "H", "sr": 27500, "fec": "3/4", "system": "DVB-S", "modulation": "QPSK"}
+  ]
+}
