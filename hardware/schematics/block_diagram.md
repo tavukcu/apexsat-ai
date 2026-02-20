@@ -25,15 +25,15 @@
                               │  └────┬─────┘  └────┬─────┘    │
                               │       │              │ (LNB)    │
                               │  ┌────┴────┐         │          │
-                              │  │AP2112K  │         │          │
-                              │  │5V→3.3V  │         │          │
-                              │  │600mA LDO│         │          │
+                              │  │MP1584EN │ ★       │          │
+                              │  │12V→3.3V │         │          │
+                              │  │3A Buck  │         │          │
                               │  └────┬────┘         │          │
-                              │       │              │          │
+                              │       │─[FB]→3.3V_RF │          │
                               │  ┌────┴────┐ ┌──────┴──┐       │
                               │  │RT9193   │ │SY8088   │       │
                               │  │3.3V→    │ │5V→0.9V  │       │
-                              │  │1.8V LDO │ │3A Buck  │       │
+                              │  │1.8V LDO │ │1A Buck  │       │
                               │  └────┬────┘ └────┬────┘       │
                               │       │           │             │
                               │       │      ┌────┴────┐       │
@@ -121,7 +121,7 @@
  ┌──────────────────┐     │  │ Ethernet RGMII                                    │  │
  │ RTL8211F-CG      │◄════╪══╡ TXD[3:0], TX_CLK, TX_EN (50Ω)                   │  │
  │ Gigabit PHY      │     │  │ RXD[3:0], RX_CLK, RX_DV (50Ω)                   │  │
- │ QFN-48           │     │  │ MDC, MDIO (management)                            │  │
+ │ QFN-40           │     │  │ MDC, MDIO (management)                            │  │
  │ VDD: 3.3V/1.8V   │     │  │ INT#, RESET# (GPIO)                              │  │
  │         ↓        │     │  └────────────────────────────────────────────────────┘  │
  │ ┌──────────────┐ │     │                                                         │
@@ -276,7 +276,7 @@
                     ┌─────────────┐         ┌──────────────┐        ┌──────────────┐
                     │  S905X4     │  RGMII  │  RTL8211F-CG │  MDI   │  HR911105A   │
                     │  MAC        │         │  PHY         │        │  RJ45+Mag    │
-                    │             │         │  (QFN-48)    │        │              │
+                    │             │         │  (QFN-40)    │        │              │
                     │  TXD[3:0] ─┼────────>│  TXD[3:0]   │        │              │
                     │  TX_CLK   ─┼────────>│  TX_CLK     │        │              │
                     │  TX_EN    ─┼────────>│  TX_EN      │        │              │
@@ -418,9 +418,12 @@
 | Rail | Voltaj | Max Akım | Regülatör | Kullananlar |
 |------|--------|----------|-----------|-------------|
 | VIN | 12V | 3A | - | Giriş |
-| 5V | 5.0V | 3A | MP2315 | USB VBUS, HDMI, LDO giriş |
-| 3.3V | 3.3V | 2A | AP2112K x2 | eMMC, SD, WiFi, ETH, IR, MIC, LNBH |
-| 1.8V | 1.8V | 1A | RT9193 | DDR4 VDD, eMMC VCCQ |
+| 5V | 5.0V | 3A | MP2315 | USB VBUS, HDMI, buck giriş |
+| 3.3V | 3.3V | 3A | MP1584EN ★ | eMMC, SD, WiFi, ETH, IR, MIC, OLED |
+| 3.3V_RF | 3.3V | 1A | MP1584EN+FB | DVB NIM, RF frontend (ferrit bead izole) |
+| 1.8V | 1.8V | 300mA | RT9193 | DDR4 VDD, eMMC VCCQ |
 | 1.1V | 1.1V | 2A | MP8759 | SoC GPU/NPU, DDR4 VDDQ |
-| VDDCORE | 0.9V | 3A | SY8088 | SoC CPU Core |
+| VDDCORE | 0.9V | 1A | SY8088 | SoC CPU Core |
 | LNB_PWR | 13/18V | 500mA | LNBH26 | LNB (F-connector) |
+
+> ★ Termal analiz sonucu: AP2112K LDO → MP1584EN Buck + Ferrit Bead (RF izolasyon)

@@ -28,7 +28,8 @@ U16,MP1584EN-LF-Z,C15051,SOIC-8-EP,"12V→3.3V 3A Step-Down Buck",MPS,MP1584EN-L
 U15,SY8088AAC,C79313,SOT-23-5,"5V→0.9V 1A Buck (SoC Core)",Silergy,SY8088AAC,Extended,1,$0.049,$0.049,DC-DC,"VDDCORE, 1. açılan, Vin 2.5-5.5V"
 U14,MP8759GD-Z,C3187827,QFN-12 (3x3),"5V→1.1V 2A Buck (GPU/DDR4)",MPS,MP8759GD-Z,Extended,1,$1.50,$1.50,DC-DC,"VDDGPU+VDDQ, 2. açılan, PGOOD çıkış"
 U13,RT9193-18GB,C27416,SOT-23-5,"1.8V 300mA LDO (DDR4 VDD)",Richtek,RT9193-18GB,Extended,1,$0.054,$0.054,LDO,"3. açılan, EN=PGOOD_1.1V"
-U12,AP2112K-3.3TRG1,C51118,SOT-23-5,"3.3V 600mA LDO (RF bölüm)",Diodes Inc,AP2112K-3.3TRG1,Extended,1,$0.078,$0.078,LDO,"Sadece RF 3.3V, düşük gürültü"
+# U12 AP2112K KALDIRILDI (termal analiz Rev B) → FB1 ferrit bead ile değiştirildi
+# RF 3.3V artık MP1584EN çıkışından ferrit bead ile izole ediliyor
 #
 # ═══════════════════════════════════════════════════════════════
 # 4. DVB-S2 UYDU FRONTEND

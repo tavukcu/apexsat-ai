@@ -1,0 +1,48 @@
+================================================================
+ APEXSAT AI v1.0 - Impedance Control Requirements
+ Board: 150mm x 100mm, 6-Layer, FR4 Tg150+
+ Stackup: JLC06161H-1080 (or equivalent)
+ Designer: Halil Dincer | Date: 2026-02-20 | Rev: A
+================================================================
+
+IMPEDANCE TABLE
+===============
+
+#  | Type          | Layer | Ref Plane | Target   | Trace W  | Space S  | Signal Group
+---|---------------|-------|-----------|----------|----------|----------|------------------
+1  | Single-ended  | L1    | L2 (GND)  | 40Ω±10% | 5.0 mil  | -        | DDR4 DQ/Addr/Cmd
+2  | Single-ended  | L1    | L2 (GND)  | 50Ω±10% | 3.8 mil  | -        | RGMII, eMMC, SDIO
+3  | Differential  | L1    | L2 (GND)  | 80Ω±10% | 4.5 mil  | 5.0 mil  | DDR4 CLK, DQS
+4  | Differential  | L1    | L2 (GND)  | 90Ω±10% | 4.0 mil  | 5.5 mil  | USB 3.0 SS, USB 2.0
+5  | Differential  | L1    | L2 (GND)  | 100Ω±10%| 3.5 mil  | 6.0 mil  | HDMI TMDS, ETH MDI
+
+STACKUP (Target)
+================
+
+Layer  | Function       | Cu Thickness | Dielectric    | Thickness
+-------|----------------|--------------|---------------|----------
+L1     | Signal (Top)   | 1 oz (35µm)  | -             | -
+PP     | Prepreg 1080   | -            | FR4 (εr≈4.2)  | 0.075mm
+L2     | GND Plane      | 1 oz (35µm)  | -             | -
+Core   | Core           | -            | FR4           | 0.50mm
+L3     | Signal/Power   | 1 oz (35µm)  | -             | -
+PP     | Prepreg 1080   | -            | FR4 (εr≈4.2)  | 0.20mm
+L4     | Power Plane    | 1 oz (35µm)  | -             | -
+Core   | Core           | -            | FR4           | 0.50mm
+L5     | Signal         | 1 oz (35µm)  | -             | -
+PP     | Prepreg 1080   | -            | FR4 (εr≈4.2)  | 0.075mm
+L6     | Signal (Bot)   | 1 oz (35µm)  | -             | -
+
+Total thickness: ~1.6mm
+
+NOTES
+=====
+1. Trace widths are calculated for L1 with L2 GND reference.
+   Please verify with your impedance calculator and adjust if needed.
+2. L2 (GND) must be a continuous, unbroken ground plane under
+   all impedance-controlled signals (DDR4, HDMI, USB, ETH).
+3. Via-in-pad with resin fill + cap plating required for BGA area.
+4. Please confirm impedance trace widths BEFORE production.
+5. Impedance test coupon requested on panel edge if possible.
+
+================================================================

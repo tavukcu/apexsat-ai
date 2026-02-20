@@ -156,7 +156,7 @@
 
 ## 4. ETHERNET BAĞLANTILARI
 
-### S905X4 → RTL8211F-CG (U6, QFN-48) → HR911105A (J5, RJ45)
+### S905X4 → RTL8211F-CG (U6, QFN-40) → HR911105A (J5, RJ45)
 
 | Kaynak IC | Kaynak Pin | Sinyal Adı | Hedef IC | Hedef Pin | Not |
 |-----------|-----------|------------|----------|----------|-----|

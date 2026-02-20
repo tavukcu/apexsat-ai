@@ -96,12 +96,12 @@ Bileşenler:
   - U15: SY8088 (5V → 0.9V Buck)
   - U14: MP8759 (5V → 1.1V Buck)
   - U13: RT9193 (3.3V → 1.8V LDO)
-  - U12: AP2112K (5V → 3.3V_RF LDO)
+  - FB1: Ferrit Bead (3.3V → 3.3V_RF izolasyon) ★ AP2112K kaldırıldı
   - İlgili tüm inductor, kapasitör, feedback dirençler
   - PGOOD bağlantıları (sequencing zinciri)
 
 Net Labels (Çıkış):
-  - VCC_5V        → USB VBUS, SY8088, MP8759, AP2112K
+  - VCC_5V        → USB VBUS, SY8088, MP8759, HDMI
   - VCC_3V3       → Sayfa 6,7,8,9,11,12
   - VCC_3V3_RF    → Sayfa 10 (DVB)
   - VCC_1V8       → Sayfa 5 (DDR4), Sayfa 6 (eMMC)
@@ -114,7 +114,7 @@ Layout:
   │ VIN_12V ──┬──→ [MP2315] → VCC_5V            │
   │           │         ├──→ [SY8088] → 0.9V     │
   │           │         ├──→ [MP8759] → 1.1V     │
-  │           │         ├──→ [AP2112K]→ 3.3V_RF  │
+  │           │         ├──→ [FB]→ 3.3V_RF ★      │
   │           │         └──→ [RT9193] → 1.8V     │
   │           │                                   │
   │           └──→ [MP1584EN] → VCC_3V3 ★        │
@@ -414,7 +414,8 @@ LCSC parça numarası ile EasyEDA Pro otomatik sembol yükler:
   C15051  → MP1584EN-LF-Z sembol + footprint
   C79313  → SY8088AAC sembol + footprint
   C27416  → RT9193-18GB sembol + footprint
-  C51118  → AP2112K-3.3TRG1 sembol + footprint
+  C1015   → GZ2012D601TF ferrit bead (RF 3.3V izolasyon)
+  # AP2112K kaldırıldı (termal analiz sonucu)
   C187932 → RTL8211F-CG sembol + footprint
   C111944 → IP4220CZ6 sembol + footprint
   C131394 → 100nF 0402 sembol + footprint

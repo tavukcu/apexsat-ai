@@ -421,7 +421,8 @@ SOT-23-5 pakette θJA = 250°C/W → Junction sıcaklığı aşırı yükselir.
    - Ana 3.3V: Buck converter
    - RF 3.3V: LDO (düşük gürültü için, düşük akım)
 
-**→ KARAR: Ana 3.3V → MP1584 Buck, RF 3.3V → AP2112K LDO kalabilir**
+**→ KARAR: Ana 3.3V → MP1584 Buck, RF 3.3V → MP1584 + Ferrit Bead filtre**
+**→ GÜNCELLEME (Termal Analiz Rev B): AP2112K tamamen kaldırıldı, ferrit bead ile izolasyon**
 
 ---
 
@@ -447,7 +448,7 @@ SOT-23-5 pakette θJA = 250°C/W → Junction sıcaklığı aşırı yükselir.
                 │    │    ├── eMMC VCCQ
                 │    │    └── S905X4 VDDIO_1.8V
                 │    │
-                │    └──► U12b: AP2112K → 3.3V_RF / 600mA LDO
+                │    └──► Ferrit Bead → 3.3V_RF (izole) ★ REV B
                 │         ├── DVB NIM VCC (300mA)
                 │         └── RF bölüm (100mA)
                 │
@@ -478,7 +479,7 @@ SOT-23-5 pakette θJA = 250°C/W → Junction sıcaklığı aşırı yükselir.
 | MP8759 (5V→1.1V) | 22µF/10V X7R + 100nF | 100µF/6.3V Polimer + 22µF/6.3V X7R | 100nF BOOT cap | PGND ayrı trace |
 | MP1584 (12V→3.3V) | 22µF/25V X7R + 100nF | 100µF/10V Polimer + 22µF/10V X7R | 100nF BST cap | ★ Yeni eklenen |
 | RT9193 (3.3V→1.8V) | 1µF/10V X7R | 1µF/10V X7R | 10nF BP cap | Düşük gürültü |
-| AP2112K (5V→3.3V_RF) | 1µF/10V X7R | 1µF/10V X7R | - | RF bölüm, ayrı GND |
+| Ferrit Bead (3.3V→RF) | 10µF/10V X7R | 10µF/10V X7R | - | RF bölüm, FB+cap filtre ★ REV B |
 
 ### SoC Bypass Kapasitör Yerleşim Kuralı:
 
@@ -501,9 +502,9 @@ SoC alt yüz (Bottom side, BGA altı):
 | Net Adı | Voltaj | Kaynak | Tüketiciler | Max Akım | Koruma |
 |---------|--------|--------|-------------|----------|--------|
 | VIN_12V | 12V | DC Jack | MP2315, MP1584, LNBH26 | 3A | PPTC + TVS + Schottky |
-| VCC_5V | 5V | MP2315 | SY8088, MP8759, USB VBUS, HDMI, AP2112K | 3A | - |
+| VCC_5V | 5V | MP2315 | SY8088, MP8759, USB VBUS, HDMI | 3A | - |
 | VCC_3V3 | 3.3V | MP1584 | eMMC, WiFi, ETH, IR, MIC, LED | 3A | - |
-| VCC_3V3_RF | 3.3V | AP2112K | DVB NIM, RF frontend | 600mA | Ferrit bead izolasyon |
+| VCC_3V3_RF | 3.3V | MP1584EN+FB | DVB NIM, RF frontend | 1A | Ferrit bead izolasyon ★ REV B |
 | VCC_1V8 | 1.8V | RT9193 | DDR4 VDD, eMMC VCCQ, SoC IO | 300mA | - |
 | VCC_1V1 | 1.1V | MP8759 | SoC GPU/NPU, DDR4 VDDQ | 2A | - |
 | VDDCORE_0V9 | 0.9V | SY8088 | SoC CPU Core | 3A | - |
