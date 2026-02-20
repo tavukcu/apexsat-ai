@@ -1,0 +1,7 @@
+config BR2_PACKAGE_APEXSAT_APP
+    bool "apexsat-app"
+    depends on BR2_PACKAGE_PYTHON3
+    depends on BR2_PACKAGE_QT6DECLARATIVE
+    help
+      APEXSAT AI ana uygulama paketi.
+      DVB tarama, EPG, AI oneri, sesli asistan, UI.

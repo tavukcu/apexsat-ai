@@ -1,0 +1,13 @@
+#!/bin/bash
+# APEXSAT AI Launcher
+export PYTHONPATH="/opt/apexsat"
+export LD_LIBRARY_PATH="/opt/apexsat/lib:$LD_LIBRARY_PATH"
+
+echo "======================================="
+echo "  APEXSAT AI v1.0 baslatiliyor..."
+echo "  Dincer Tavukculuk / APEX Serisi"
+echo "======================================="
+
+# Qt/QML UI baslat
+cd /opt/apexsat/ui
+exec python3 main.py --fullscreen

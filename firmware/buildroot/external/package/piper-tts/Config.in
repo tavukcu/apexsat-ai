@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PIPER_TTS
+    bool "piper-tts"
+    depends on BR2_INSTALL_LIBSTDCPP
+    help
+      Piper - hizli, yerel TTS (Text-to-Speech) motoru.
+      Turkce ses sentezi icin kullanilir.
+      https://github.com/rhasspy/piper

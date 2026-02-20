@@ -1,0 +1,10 @@
+WHISPER_CPP_VERSION = 1.5.4
+WHISPER_CPP_SITE = https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v$(WHISPER_CPP_VERSION).tar.gz
+WHISPER_CPP_LICENSE = MIT
+WHISPER_CPP_INSTALL_TARGET = YES
+
+WHISPER_CPP_CONF_OPTS = \
+    -DBUILD_SHARED_LIBS=ON \
+    -DWHISPER_NO_ACCELERATE=ON
+
+$(eval $(cmake-package))

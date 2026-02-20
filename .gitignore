@@ -11,6 +11,8 @@ output/
 # Buildroot
 firmware/buildroot/output/
 firmware/buildroot/dl/
+firmware/buildroot/buildroot-src/
+firmware/buildroot/buildroot-*.tar.xz
 
 # Python
 __pycache__/

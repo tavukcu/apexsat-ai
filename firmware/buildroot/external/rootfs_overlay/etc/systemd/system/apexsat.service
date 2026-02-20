@@ -1,0 +1,17 @@
+[Unit]
+Description=APEXSAT AI - DVB-S2 Uydu Alicisi
+After=network.target graphical.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/apexsat/bin/apexsat-launcher
+Restart=always
+RestartSec=5
+User=root
+Environment=QT_QPA_PLATFORM=eglfs
+Environment=QT_QPA_EGLFS_INTEGRATION=eglfs_kms
+Environment=XDG_RUNTIME_DIR=/run/user/0
+
+[Install]
+WantedBy=multi-user.target
